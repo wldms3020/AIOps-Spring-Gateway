@@ -1,5 +1,5 @@
 server:
-  port: 8000 # gateway가 동작하는 port
+  port: 8080 # gateway가 동작하는 port
 
   
 spring:
@@ -10,19 +10,19 @@ spring:
       routes:
       - id: user
         # 목적지
-        uri: http://127.0.0.1:8081/
+        uri: http://192.168.65.39:8080/
         predicates:
         - Path=/user/**
         - Method=Post
       - id: log
         # 목적지
-        uri: http://127.0.0.1:8081/
+        uri: http://192.168.65.39:8080/
         predicates:
         - Path=/log/**
         - Method=GET
       - id: metric
         # 목적지
-        uri: http://127.0.0.1:8081/
+        uri: http://192.168.65.39:8080/
         predicates:
         - Path=/metric/**
         - Method=GET
