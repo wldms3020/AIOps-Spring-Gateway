@@ -1,0 +1,29 @@
+server:
+  port: 8000 # gateway가 동작하는 port
+
+  
+spring:
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      routes:
+      - id: user
+        # 목적지
+        uri: http://127.0.0.1:8081/
+        predicates:
+        - Path=/user/**
+        - Method=Post
+      - id: log
+        # 목적지
+        uri: http://127.0.0.1:8081/
+        predicates:
+        - Path=/log/**
+        - Method=GET
+      - id: metric
+        # 목적지
+        uri: http://127.0.0.1:8081/
+        predicates:
+        - Path=/metric/**
+        - Method=GET
+        
